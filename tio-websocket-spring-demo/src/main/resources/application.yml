@@ -1,0 +1,9 @@
+tio:
+  server-port: 9326
+  protocol-name: showcase
+  charset: UTF-8
+  server-ip: 
+  heartbeat-timeout: 60000
+spring:
+  main:
+    banner-mode: "off"
