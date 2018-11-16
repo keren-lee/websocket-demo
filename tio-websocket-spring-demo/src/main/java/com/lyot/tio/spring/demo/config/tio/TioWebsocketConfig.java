@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import org.tio.server.ServerGroupContext;
 import org.tio.websocket.server.WsServerStarter;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableConfigurationProperties(TioServerProperties.class)
+@Slf4j
 public class TioWebsocketConfig {
 	
 	private final TioServerProperties tioServerProperties;
@@ -22,6 +25,7 @@ public class TioWebsocketConfig {
 	public WsServerStarter wsServerStarter(AppIpStatListener appIpStatListener
 										,AppWsServerAioListener appWsServerAioListener
 										,WsMessageHandler wsMsgHandler) throws Exception {
+		log.info("WsServerStarter config");
 		WsServerStarter wsServerStarter = new WsServerStarter(tioServerProperties.getServerPort(), wsMsgHandler);
 		ServerGroupContext serverGroupContext = wsServerStarter.getServerGroupContext();
 		serverGroupContext.setName(tioServerProperties.getProtocolName());

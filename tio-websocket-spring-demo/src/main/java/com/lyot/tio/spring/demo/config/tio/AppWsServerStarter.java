@@ -5,7 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.tio.websocket.server.WsServerStarter;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class AppWsServerStarter implements CommandLineRunner {
 	
 	private WsServerStarter wsServerStarter;
@@ -17,6 +20,7 @@ public class AppWsServerStarter implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		log.info("tio starter....");
 		wsServerStarter.start();
 	}
 	
